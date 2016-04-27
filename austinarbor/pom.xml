@@ -6,5 +6,8 @@
   <packaging>pom</packaging>
   <modules>
   	<module>studying</module>
+  	<module>topcoder</module>
+  	<module>austinarbor-common</module>
+  	<module>practice2</module>
   </modules>
 </project>
