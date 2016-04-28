@@ -5,9 +5,10 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-  	<module>studying</module>
-  	<module>topcoder</module>
+  	
+  	
   	<module>austinarbor-common</module>
-  	<module>practice2</module>
+  	
+  	<module>austinarbor-solutions</module>
   </modules>
 </project>
