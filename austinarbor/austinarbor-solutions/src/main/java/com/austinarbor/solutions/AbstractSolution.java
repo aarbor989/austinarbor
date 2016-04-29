@@ -9,6 +9,9 @@ package com.austinarbor.solutions;
  *
  */
 public abstract class AbstractSolution implements Solution {
-
 	
+	protected static final String BASE_INPUT_PATH="input/";
+	
+	protected AbstractSolution() { }
+
 }
