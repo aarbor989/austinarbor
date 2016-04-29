@@ -2,9 +2,11 @@ package com.austinarbor.solutions.misc;
 
 import java.util.HashSet;
 
-public class SentenceChecker {
+import com.austinarbor.solutions.AbstractSolution;
 
-    public static boolean isSentence(String s, HashSet<String> d) {
+public class SentenceChecker extends AbstractSolution {
+
+    public boolean isSentence(String s, HashSet<String> d) {
         boolean sentence = false;
         StringBuilder buf = new StringBuilder();
         String cur="";
@@ -38,8 +40,9 @@ public class SentenceChecker {
     }
     
     
-    public static void main(String[] args) {
-        // Prints "Hello, World" to the terminal window.
+	@Override
+	public void run() {
+		SentenceChecker sc = new SentenceChecker();
         HashSet<String> dictionary=new HashSet<String> ();
         dictionary.add("I");
         dictionary.add("LOVE");
@@ -51,14 +54,12 @@ public class SentenceChecker {
         dictionary.add("THERE");
         dictionary.add("HERE");
         //dictionary.add("S");
-        
-        
+
         String s1="ILOVT";
         //String s="IIIIIIIIIIILOVETOEATTACOSSSSSSSSSSS";
         String s="THERESMEETMETHERE";
         
-
-        
-        System.out.println(isSentence(s,dictionary));
-    }
+        System.out.println(sc.isSentence(s,dictionary));
+		
+	}
 }

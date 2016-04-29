@@ -3,22 +3,18 @@ package com.austinarbor.solutions.misc;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.austinarbor.solutions.AbstractSolution;
+
 /**
  * Class to find the first non-repeated
  * character of a string
  * @author Austin G. Arbor
  *
  */
-public class NonRepeatedChar {
+public class NonRepeatedChar extends AbstractSolution {
 	
-	private static final String str="teeter";
 	
-	public static void main(String args[]) {
-		Character c = firstNonRepeated(str);
-		System.out.println(c);
-	}
-	
-	public static Character firstNonRepeated(String str) {
+	public Character firstNonRepeated(String str) {
 		Character res = null;//str.charAt(0);
 		Map<Character, Integer> charMap = new HashMap<Character,Integer>();
 		for (int i=0; i < str.length(); i++) {
@@ -35,6 +31,14 @@ public class NonRepeatedChar {
 			}
 		}
 		return res;
+	}
+	
+	@Override
+	public void run() {
+		NonRepeatedChar nrc = new NonRepeatedChar();
+		final String testStr = "teeter";
+		Character c = nrc.firstNonRepeated(testStr);
+		System.out.println("First Non-Repeated Character in String \"" + testStr+"\" " + c);
 	}
 
 }
