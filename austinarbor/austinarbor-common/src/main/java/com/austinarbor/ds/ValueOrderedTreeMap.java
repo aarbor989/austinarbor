@@ -174,22 +174,19 @@ public class ValueOrderedTreeMap<K,V extends Comparable<V>> implements SortedMap
 
 	@Override
 	public SortedMap<K, V> subMap(K fromKey, K toKey) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 
 	@Override
 	public SortedMap<K, V> headMap(K toKey) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 
 	@Override
 	public SortedMap<K, V> tailMap(K fromKey) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 
