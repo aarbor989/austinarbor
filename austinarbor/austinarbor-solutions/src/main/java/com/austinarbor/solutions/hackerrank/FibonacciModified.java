@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.austinarbor.solutions.AbstractSolution;
+import com.austinarbor.solutions.annotation.RunnableSolution;
 
 /**
  * <p>A series is defined in the following manner:
@@ -38,6 +39,7 @@ import com.austinarbor.solutions.AbstractSolution;
  * @see <a href="https://www.hackerrank.com/challenges/fibonacci-modified">HackerRank Fibonacci Modified</a>
  *
  */
+@RunnableSolution
 public class FibonacciModified extends AbstractSolution {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(FibonacciModified.class);

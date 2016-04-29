@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.austinarbor.solutions.AbstractSolution;
+import com.austinarbor.solutions.annotation.RunnableSolution;
 
 /**
  * 
@@ -32,6 +33,7 @@ import com.austinarbor.solutions.AbstractSolution;
  * @author Austin G. Arbor
  * @see <a href="https://www.hackerrank.com/challenges/common-child">HackerRank Common Child</a>
  */
+@RunnableSolution
 public class CommonChild extends AbstractSolution {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CommonChild.class);

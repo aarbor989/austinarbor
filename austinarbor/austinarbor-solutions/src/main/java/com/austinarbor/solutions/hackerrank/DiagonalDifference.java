@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.austinarbor.solutions.AbstractSolution;
+import com.austinarbor.solutions.annotation.RunnableSolution;
 
 /**
  * <p><b>Problem Description:</b><br/>
@@ -34,6 +35,7 @@ import com.austinarbor.solutions.AbstractSolution;
  * @see <a href="https://www.hackerrank.com/challenges/diagonal-difference">HackerRank Diagonal Difference</a>
  *
  */
+@RunnableSolution
 public class DiagonalDifference extends AbstractSolution {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(DiagonalDifference.class);
@@ -60,12 +62,6 @@ public class DiagonalDifference extends AbstractSolution {
 		}
 
 		return Math.abs(firstSum-secSum);
-	}
-
-	public static void main(String[] args) {
-
-
-
 	}
 
 	@Override
