@@ -38,11 +38,8 @@ public class DiagonalDifference extends AbstractSolution {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(DiagonalDifference.class);
 
-	protected String inputFileDirectory;
-
 	public DiagonalDifference() {
-		super();
-		inputFileDirectory = BASE_INPUT_PATH + this.getClass().getSimpleName();
+		super(DiagonalDifference.class.getSimpleName());
 	}
 
 	public int diagonalDifference(int[][] a) {

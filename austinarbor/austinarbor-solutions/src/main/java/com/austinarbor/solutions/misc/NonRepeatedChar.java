@@ -3,6 +3,9 @@ package com.austinarbor.solutions.misc;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.austinarbor.solutions.AbstractSolution;
 
 /**
@@ -13,6 +16,11 @@ import com.austinarbor.solutions.AbstractSolution;
  */
 public class NonRepeatedChar extends AbstractSolution {
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(NonRepeatedChar.class);
+	
+	public NonRepeatedChar() {
+		super(NonRepeatedChar.class.getSimpleName());
+	}
 	
 	public Character firstNonRepeated(String str) {
 		Character res = null;//str.charAt(0);
@@ -38,7 +46,7 @@ public class NonRepeatedChar extends AbstractSolution {
 		NonRepeatedChar nrc = new NonRepeatedChar();
 		final String testStr = "teeter";
 		Character c = nrc.firstNonRepeated(testStr);
-		System.out.println("First Non-Repeated Character in String \"" + testStr+"\" " + c);
+		LOGGER.info("First Non-Repeated Character in String \"" + testStr+"\" " + c);
 	}
 
 }

@@ -3,10 +3,8 @@
  */
 package com.austinarbor.solutions.hackerrank;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.Scanner;
 
 import org.slf4j.Logger;
@@ -38,11 +36,8 @@ public class CommonChild extends AbstractSolution {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CommonChild.class);
 
-	protected String inputFileDirectory;
-
 	public CommonChild() {
-		super();
-		inputFileDirectory = BASE_INPUT_PATH + this.getClass().getSimpleName();
+		super(CommonChild.class.getSimpleName());
 	}
 
 	public int getCommonChild(String x, String y) {
@@ -68,8 +63,7 @@ public class CommonChild extends AbstractSolution {
 	public void run()  {
 		LOGGER.info("BEGIN");
 		CommonChild cc = new CommonChild();
-		File inputDir = new File(this.getClass().getClassLoader().getResource(inputFileDirectory).getFile());
-		File[] inputFiles = inputDir.listFiles();
+		File[] inputFiles = getInputFiles();
 		for(int i=0; i < inputFiles.length; i++) {
 			final File file = inputFiles[i];
 			LOGGER.info("Run: {}\tFile: {}",i,file.getName());
