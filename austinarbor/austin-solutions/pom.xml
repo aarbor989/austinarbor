@@ -6,12 +6,12 @@
 		<artifactId>austinarbor</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>austinarbor-solutions</artifactId>
+	<artifactId>austin-solutions</artifactId>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.austinarbor</groupId>
-			<artifactId>austinarbor-common</artifactId>
+			<artifactId>austin-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

@@ -4,11 +4,8 @@
   <artifactId>austinarbor</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <modules>
-  	
-  	
-  	<module>austinarbor-common</module>
-  	
-  	<module>austinarbor-solutions</module>
+  <modules>  	
+  	<module>austin-core</module>
+  	<module>austin-solutions</module>
   </modules>
 </project>
