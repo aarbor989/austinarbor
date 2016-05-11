@@ -3,8 +3,6 @@
  */
 package com.austinarbor.solutions.hackerrank;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -39,11 +37,11 @@ import com.austinarbor.solutions.annotation.RunnableSolution;
 @RunnableSolution
 public class SherlockAndValidStrings extends AbstractSolution{
 	private static final Logger LOGGER = LoggerFactory.getLogger(SherlockAndValidStrings.class);
-	
+
 	public SherlockAndValidStrings() {
 		super(SherlockAndValidStrings.class.getSimpleName());
 	}
-	
+
 	public boolean isValidString(final String str) {
 		LOGGER.info("BEGIN");
 		Map<Character,Integer> charCount = new HashMap<Character,Integer>();
@@ -96,27 +94,17 @@ public class SherlockAndValidStrings extends AbstractSolution{
 	}
 
 	@Override
-	public void run() {
-		File[] inputFiles = getInputFiles();
-		SherlockAndValidStrings sherlock = new SherlockAndValidStrings();
-		for(int i=0; i < inputFiles.length; i++) {
-			final File file = inputFiles[i];
-			try(final Scanner scanner = new Scanner(file)) {
-				while(scanner.hasNextLine()) {
-					final String line = scanner.nextLine();
-					LOGGER.info("Testing string " + line);
-					if(sherlock.isValidString(line)) {
-						LOGGER.info("{} is a valid string!",line);
-						System.out.println("YES");
-					} else {
-						LOGGER.info("{} is not a valid string",line);
-						System.out.println("NO");
-					}
-				}
-			} catch (FileNotFoundException e) {
-				LOGGER.error("Exception while trying to open file {}",file.getName());
+	public void doRun(final Scanner scanner) {
+		while(scanner.hasNextLine()) {
+			final String line = scanner.nextLine();
+			LOGGER.info("Testing string " + line);
+			if(isValidString(line)) {
+				LOGGER.info("{} is a valid string!",line);
+				System.out.println("YES");
+			} else {
+				LOGGER.info("{} is not a valid string",line);
+				System.out.println("NO");
 			}
 		}
-		
-	}
+	}		
 }

@@ -3,8 +3,6 @@
  */
 package com.austinarbor.solutions.hackerrank;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.math.BigInteger;
 import java.util.Scanner;
 
@@ -41,14 +39,13 @@ import com.austinarbor.solutions.annotation.RunnableSolution;
  */
 @RunnableSolution
 public class FibonacciModified extends AbstractSolution {
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(FibonacciModified.class);
 
 	public FibonacciModified() {
 		super(FibonacciModified.class.getSimpleName());
 	}
-	
-	
+
 	public BigInteger fibonacciModified(BigInteger first, BigInteger second, int target) {
 		BigInteger[] solutions = new BigInteger[target+1];
 		solutions[0] = first;
@@ -56,30 +53,22 @@ public class FibonacciModified extends AbstractSolution {
 		for(int i=2; i < target; i++) {
 			solutions[i] = (solutions[i-1].multiply(solutions[i-1])).add(solutions[i-2]);
 		}
-		
+
 		return solutions[target-1];
 	}
 
 	@Override
-	public void run() {
-		LOGGER.info("BEGIN");
-		final File[] inputFiles = getInputFiles();
-		for(File file : inputFiles) {
-			try(final Scanner scanner = new Scanner(file)) {
-				BigInteger first = scanner.nextBigInteger();
-				BigInteger second = scanner.nextBigInteger();
-				int target = scanner.nextInt();
-				LOGGER.info("First Number: {}",first);
-				LOGGER.info("Second Number: {}",second);
-				LOGGER.info("Target Number: {}", target);
-				BigInteger solution = fibonacciModified(first,second,target);
-				LOGGER.info("Solution: {}", solution);
-			}catch(FileNotFoundException fnfe) {
-				LOGGER.error("Error opening file " + file.getName(), fnfe);
-			}
+	public void doRun(final Scanner scanner) {
+		while(scanner.hasNext()) {
+			BigInteger first = scanner.nextBigInteger();
+			BigInteger second = scanner.nextBigInteger();
+			int target = scanner.nextInt();
+			LOGGER.info("First Number: {}",first);
+			LOGGER.info("Second Number: {}",second);
+			LOGGER.info("Target Number: {}", target);
+			BigInteger solution = fibonacciModified(first,second,target);
+			LOGGER.info("Solution: {}", solution);
 		}		
-		LOGGER.info("END");
-		
 	}
 
 }

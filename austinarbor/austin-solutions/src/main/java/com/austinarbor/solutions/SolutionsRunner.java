@@ -15,26 +15,51 @@ import javassist.Modifier;
 public class SolutionsRunner {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(SolutionsRunner.class);
-
+	/**
+	 * The base package to scan
+	 */
 	private String basePackage;
+
+
 	private Reflections reflections;
-	
+
+	/**
+	 * Default package to scan if none are specified
+	 */
 	private static final String DEFAULT_PACKAGE = "com.austinarbor.solutions";
-	
+
+	/**
+	 * Default constructor.
+	 */
 	public SolutionsRunner() {
 		this(DEFAULT_PACKAGE);
 	}
-	
+
+	/**
+	 * Constructor
+	 * @param basePackage The base package to scan for classes
+	 * to execute
+	 */
 	public SolutionsRunner(final String basePackage) {
 		this.basePackage = basePackage;
 		reflections = new Reflections(this.basePackage);
 	}
-	
+
+	/**
+	 * Get the classes which are annotated with {@link com.austinarbor.solutions.annotation.RunnableSolution}
+	 * @return A Set of classes 
+	 * @see com.austinarbor.solutions.annotation.RunnableSolution
+	 */
 	public Set<Class<?>> getRunnableClasses() {
 		Set<Class<?>> classes = reflections.getTypesAnnotatedWith(RunnableSolution.class);
 		return classes;
 	}
-	
+
+	/**
+	 * Main method to execute all of the classes annotated with
+	 *  {@link com.austinarbor.solutions.annotation.RunnableSolution}
+	 *  @see com.austinarbor.solutions.annotation.RunnableSolution
+	 */
 	public void runSolutions() {
 		LOGGER.info("BEGIN");
 		final Set<Class<?>> runnableClasses = getRunnableClasses();
@@ -45,7 +70,7 @@ public class SolutionsRunner {
 					RunnableSolution annotation = clazz.getAnnotation(RunnableSolution.class);
 					final String methodName = annotation.methodName();
 					Object obj = (Solution)clazz.newInstance();
-					Method runMethod = clazz.getDeclaredMethod(methodName, new Class<?>[0]);
+					Method runMethod = clazz.getMethod(methodName, new Class<?>[0]);
 					int numRuns = annotation.times();
 					for(int i=0; i < numRuns; i++) {
 						runMethod.invoke(obj);
@@ -61,12 +86,12 @@ public class SolutionsRunner {
 		}
 		LOGGER.info("END");
 	}
-	
+
 	public static void main(String[] args) {
 		SolutionsRunner runner =new SolutionsRunner();
 		runner.runSolutions();
 
 	}
-	
-	
+
+
 }

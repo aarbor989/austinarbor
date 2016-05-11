@@ -3,8 +3,6 @@
  */
 package com.austinarbor.solutions.hackerrank;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import org.slf4j.Logger;
@@ -61,26 +59,17 @@ public class CommonChild extends AbstractSolution {
 		return opt[0][0];
 	}
 
-
-	public void run()  {
+	@Override
+	public void doRun(final Scanner scanner)  {
 		LOGGER.info("BEGIN");
-		CommonChild cc = new CommonChild();
-		File[] inputFiles = getInputFiles();
-		for(int i=0; i < inputFiles.length; i++) {
-			final File file = inputFiles[i];
-			LOGGER.info("Run: {}\tFile: {}",i,file.getName());
-			try(Scanner scanner = new Scanner(file)){
-				String x = scanner.next();
-				String y = scanner.next();
-				LOGGER.info("X: {}",x);
-				LOGGER.info("Y: {}",y);
-				int commonChild = cc.getCommonChild(x, y);
-				LOGGER.info("Common Child: {}", commonChild);
-			} catch (FileNotFoundException e) {
-				LOGGER.error("Exception in run()",e);
-			} 			
-		}
-
+		while(scanner.hasNextLine()) {
+			String x = scanner.next();
+			String y = scanner.next();
+			LOGGER.info("X: {}",x);
+			LOGGER.info("Y: {}",y);
+			int commonChild = getCommonChild(x, y);
+			LOGGER.info("Common Child: {}", commonChild);
+		} 
 		LOGGER.info("END");
 	}
 

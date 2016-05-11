@@ -1,7 +1,5 @@
 package com.austinarbor.solutions.hackerrank;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import org.slf4j.Logger;
@@ -65,28 +63,17 @@ public class DiagonalDifference extends AbstractSolution {
 	}
 
 	@Override
-	public void run() {
-		LOGGER.info("BEGIN");
-		DiagonalDifference dd = new DiagonalDifference();
-		File inputDir = new File(this.getClass().getClassLoader().getResource(inputFileDirectory).getFile());
-		File[] inputFiles = inputDir.listFiles();
-		for(int i=0; i < inputFiles.length; i++) {
-			final File file = inputFiles[i];
-
-			try(final Scanner in = new Scanner(file)) {
-				int n = in.nextInt();
-				int a[][] = new int[n][n];
-				for(int a_i=0; a_i < n; a_i++){
-					for(int a_j=0; a_j < n; a_j++){
-						a[a_i][a_j] = in.nextInt();
-					}
+	public void doRun(final Scanner scanner) {
+		while(scanner.hasNext()) {
+			int n = scanner.nextInt();
+			int a[][] = new int[n][n];
+			for(int a_i=0; a_i < n; a_i++){
+				for(int a_j=0; a_j < n; a_j++){
+					a[a_i][a_j] = scanner.nextInt();
 				}
-				LOGGER.info("Diagonal Difference: {}", dd.diagonalDifference(a));
-			} catch(FileNotFoundException fnfe) {
-				LOGGER.error("Exception trying to find diagonal difference", fnfe);
 			}
-		}
-		LOGGER.info("END");
+			LOGGER.info("Diagonal Difference: {}", diagonalDifference(a));
+		} 
 	}
 	/*
 	 * 	LOGGER.info("BEGIN");

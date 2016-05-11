@@ -2,6 +2,7 @@ package com.austinarbor.solutions.misc;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,13 +16,13 @@ import com.austinarbor.solutions.AbstractSolution;
  *
  */
 public class NonRepeatedChar extends AbstractSolution {
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(NonRepeatedChar.class);
-	
+
 	public NonRepeatedChar() {
 		super(NonRepeatedChar.class.getSimpleName());
 	}
-	
+
 	public Character firstNonRepeated(String str) {
 		Character res = null;//str.charAt(0);
 		Map<Character, Integer> charMap = new HashMap<Character,Integer>();
@@ -40,13 +41,14 @@ public class NonRepeatedChar extends AbstractSolution {
 		}
 		return res;
 	}
-	
+
 	@Override
-	public void run() {
-		NonRepeatedChar nrc = new NonRepeatedChar();
-		final String testStr = "teeter";
-		Character c = nrc.firstNonRepeated(testStr);
-		LOGGER.info("First Non-Repeated Character in String \"" + testStr+"\" " + c);
+	public void doRun(final Scanner scanner) {
+		while(scanner.hasNextLine()) {
+			final String input = scanner.nextLine();
+			Character c = firstNonRepeated(input);
+			LOGGER.info("First Non-Repeated Character in String \"{}\" is '{}'",input,c);
+		}
 	}
 
 }
