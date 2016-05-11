@@ -148,4 +148,19 @@ public class LinkedList<T> extends AbstractList<T> {
 		this.head = head;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuffer buffer = new StringBuffer("[");
+		Node<T> node = head;
+		while(node != null) {
+			buffer.append(node.getData());
+			if(node.getNext() != null) {
+				buffer.append(", ");
+			}
+			node = node.getNext();
+		}
+		buffer.append("]");
+		return buffer.toString();
+	}
+	
 }
